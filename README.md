@@ -1,6 +1,17 @@
 # Gyani Frontend
 
-Frontend application for the Gyani SaaS Platform built with Next.js, TypeScript, Tailwind CSS, and Tailwind CSS.
+Gyani is a modern SaaS platform designed to help businesses manage their operations through a centralized dashboard. The platform provides secure authentication, company management, and scalable modules that can be expanded with CRM, employee management, billing, and other business tools in the future.
+
+This repository contains the frontend application built with Next.js, TypeScript, and Tailwind CSS.
+
+## 🎯 Purpose
+
+The goal of Gyani is to provide businesses with a single platform to:
+
+- Manage multiple companies and business entities
+- Securely handle user authentication and access
+- Access business modules from a centralized dashboard
+- Scale with future features such as CRM, HRM, Billing, Projects, and Analytics
 
 ## 🚀 Features
 
@@ -13,11 +24,11 @@ Frontend application for the Gyani SaaS Platform built with Next.js, TypeScript,
 ### Company Module
 - Create Company
 - Select Company
-- Company Information Management
+- Manage Company Information
 
 ### UI Features
 - Responsive Design
-- Modern Dashboard Layout
+- Modern User Interface
 - Reusable Components
 - Form Validation
 
@@ -31,16 +42,10 @@ Frontend application for the Gyani SaaS Platform built with Next.js, TypeScript,
 - React Hook Form
 - Zod
 
-## 📂 Project Structure
+## 🎨 Theme
 
-```text
-src/
-├── app/
-├── components/
-├── hooks/
-├── lib/
-└── types/
-```
+- Primary Color: `#1522AD`
+- Hover Color: `#101A85`
 
 ## ⚙️ Installation
 
@@ -48,12 +53,6 @@ src/
 npm install
 npm run dev
 ```
-
-## 🎨 Theme
-
-Primary Color: #1522AD
-
-Hover Color: #101A85
 
 ## 👨‍💻 Author
 
