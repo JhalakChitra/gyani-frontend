@@ -1,5 +1,5 @@
 # Gyani Frontend
-
+Gyani Next-Gen Accounting Platform
 Gyani is a modern SaaS platform designed to help businesses manage their operations through a centralized dashboard. The platform provides secure authentication, company management, and scalable modules that can be expanded with CRM, employee management, billing, and other business tools in the future.
 
 This repository contains the frontend application built with Next.js, TypeScript, and Tailwind CSS.

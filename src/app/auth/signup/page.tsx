@@ -1,10 +1,16 @@
-import AuthWrapper from "@/components/auth/AuthWrapper";
+import AuthLayout from "@/components/auth/AuthLayout";
+import AuthCard from "@/components/auth/AuthCard";
 import SignupForm from "@/components/auth/SignupForm";
 
-export default function SignupPage() {
+export default function Page() {
   return (
-    <AuthWrapper>
-      <SignupForm />
-    </AuthWrapper>
+    <AuthLayout>
+      <AuthCard
+        title="Create Account"
+        description="Create your Gyani account"
+      >
+        <SignupForm />
+      </AuthCard>
+    </AuthLayout>
   );
 }

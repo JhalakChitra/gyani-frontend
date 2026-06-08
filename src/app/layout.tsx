@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ReactNode } from "react";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata = {
   title: "Gyani – Next-Gen Accounting Platform",
@@ -13,8 +14,15 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

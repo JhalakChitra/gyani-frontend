@@ -1,28 +1,35 @@
-interface Props {
-  type?: string;
-  placeholder: string;
+interface Props
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
 }
 
 export default function AuthInput({
-  type = "text",
-  placeholder,
+  label,
+  ...props
 }: Props) {
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      className="
-      w-full
-      border
-      border-gray-300
-      rounded-xl
-      px-4
-      py-3
-      outline-none
-      focus:ring-2
-      focus:ring-[#1522ad]
-      transition
-      "
-    />
+    <div className="mb-3">
+      <label className="block mb-2 text-[11px] font-semibold uppercase tracking-wider text-gray-300">
+        {label}
+      </label>
+
+      <input
+        {...props}
+        className="
+        w-full
+        h-10
+        rounded-lg
+        border
+        border-[#1C2D58]
+        bg-[#020B24]
+        px-3
+        text-sm
+        text-white
+        outline-none
+        placeholder:text-gray-500
+        focus:border-[#1522AD]
+        "
+      />
+    </div>
   );
 }

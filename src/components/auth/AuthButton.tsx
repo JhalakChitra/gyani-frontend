@@ -1,23 +1,31 @@
 interface Props {
   title: string;
+  loading?: boolean;
 }
 
-export default function AuthButton({ title }: Props) {
+export default function AuthButton({
+  title,
+  loading,
+}: Props) {
   return (
     <button
+      type="submit"
+      disabled={loading}
       className="
       w-full
-      bg-[#1522ad]
-      hover:bg-[#101a85]
-      text-white
-      py-3
-      rounded-xl
+      cursor-pointer
+      h-10
+      rounded-lg
+      bg-[#1522AD]
+      text-sm
       font-semibold
+      text-white
       transition
-      shadow-md
-      cursor-pointer"
+      hover:bg-[#101A85]
+      disabled:opacity-50
+      "
     >
-      {title}
+      {loading ? "Please wait..." : title}
     </button>
   );
 }
