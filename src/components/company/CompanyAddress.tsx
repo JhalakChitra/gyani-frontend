@@ -6,36 +6,61 @@ export default function CompanyAddress() {
       </h2>
 
       <div className="grid md:grid-cols-2 gap-4">
+
         <input
+          name="addressLine1"
           placeholder="Address Line 1"
-          className="border rounded-xl px-4 py-3"
+          required
+          className="border rounded-xl px-4 py-3 w-full"
         />
 
         <input
+          name="addressLine2"
           placeholder="Address Line 2"
-          className="border rounded-xl px-4 py-3"
+          className="border rounded-xl px-4 py-3 w-full"
         />
 
         <input
+          name="city"
           placeholder="City"
-          className="border rounded-xl px-4 py-3"
+          required
+          className="border rounded-xl px-4 py-3 w-full"
         />
 
-        <input
-          placeholder="State"
-          className="border rounded-xl px-4 py-3"
-        />
+        <select
+          name="state"
+          required
+          className="border rounded-xl px-4 py-3 w-full"
+        >
+          <option value="">
+            Select State
+          </option>
+          <option>Delhi</option>
+          <option>Uttar Pradesh</option>
+          <option>Maharashtra</option>
+          <option>Gujarat</option>
+        </select>
+
 
         <input
+          name="pincode"
+          type="number"
           placeholder="Pincode"
-          className="border rounded-xl px-4 py-3"
+          required
+          className="border rounded-xl px-4 py-3 w-full"
         />
 
-        <input
-          placeholder="Country"
+
+        <select
+          name="country"
           defaultValue="India"
-          className="border rounded-xl px-4 py-3"
-        />
+          className="border rounded-xl px-4 py-3 w-full"
+        >
+          <option>
+            India
+          </option>
+        </select>
+
       </div>
     </section>
   );
