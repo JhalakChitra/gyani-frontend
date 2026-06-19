@@ -5,6 +5,7 @@ import {
   Package,
   FileText,
   Settings,
+  LogOut,
 } from "lucide-react";
 
 export const sidebarItems = [
@@ -73,5 +74,11 @@ export const sidebarItems = [
     title: "Settings",
     icon: Settings,
     href: "/settings",
+  },
+  
+  {
+    title: "logout",
+    icon: LogOut,
+    action:"logout",
   },
 ];

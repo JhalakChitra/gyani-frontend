@@ -3,20 +3,19 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 import CompanyBasicInfo from "./CompanyBasicInfo";
 import CompanyAddress from "./CompanyAddress";
 import CompanyTaxInfo from "./CompanyTaxInfo";
 import CompanyFinancialInfo from "./CompanyFinancialInfo";
 import CompanyBranding from "./CompanyBranding";
 
+import { createCompany } from "@/services/company.api";
+
 
 export default function CompanyForm() {
 
 
 const router = useRouter();
-
-
 
 const [loading,setLoading] = useState(false);
 
@@ -57,7 +56,6 @@ signature:null
 
 
 
-
 async function handleSubmit(e:any){
 
 e.preventDefault();
@@ -70,84 +68,46 @@ setLoading(true);
 
 
 
-const token =
-localStorage.getItem("accessToken");
-
-
-
 const body = {
 
 ...form,
+
+// files abhi nahi bhejne
+logo:null,
+signature:null,
 
 
 financialYearStart:
 form.financialYearStart
 ? new Date(form.financialYearStart)
-: null,
+:null,
 
 
 booksBeginning:
 form.booksBeginning
 ? new Date(form.booksBeginning)
-: null
+:null
 
 };
 
 
 
 
-
-const res = await fetch(
-
-"http://localhost:3001/companies",
-
-{
-
-method:"POST",
-
-
-headers:{
-
-
-"Content-Type":
-"application/json",
-
-
-Authorization:
-`Bearer ${token}`
-
-
-},
-
-
-body:JSON.stringify(body)
-
-
-}
-
-
-);
-
-
-
-
-
-const data = await res.json();
+const res =
+await createCompany(body);
 
 
 
 console.log(
-"COMPANY CREATED",
-data
+"CREATE COMPANY RESPONSE",
+res
 );
 
 
 
-if(res.ok){
+if(res.id){
 
-alert(
-"Company Created"
-);
+alert("Company Created");
 
 
 router.push(
@@ -159,12 +119,11 @@ router.push(
 
 
 alert(
-data.message || "Error"
+res.message || "Company create failed"
 );
 
 
 }
-
 
 
 
@@ -173,25 +132,20 @@ data.message || "Error"
 
 console.log(error);
 
-
 alert(
 "Company create failed"
 );
 
 
-
-}finally{
-
+}
+finally{
 
 setLoading(false);
 
-
 }
 
 
-
 }
-
 
 
 
@@ -208,82 +162,50 @@ className="space-y-8"
 >
 
 
-<div>
-
 <h1 className="text-3xl font-bold">
-
 Create Company
-
 </h1>
 
 
+
 <p className="text-gray-500">
-
 Setup your business workspace.
-
 </p>
-
-
-</div>
-
 
 
 
 
 <CompanyBasicInfo
-
 form={form}
-
 setForm={setForm}
-
 />
-
-
 
 
 
 <CompanyAddress
-
 form={form}
-
 setForm={setForm}
-
 />
-
-
 
 
 
 <CompanyTaxInfo
-
 form={form}
-
 setForm={setForm}
-
 />
-
-
 
 
 
 <CompanyFinancialInfo
-
 form={form}
-
 setForm={setForm}
-
 />
 
 
 
-
-
 <CompanyBranding
-
 form={form}
-
 setForm={setForm}
-
 />
 
 
@@ -302,8 +224,8 @@ py-3
 rounded-xl
 "
 
->
 
+>
 
 {
 loading
@@ -318,9 +240,9 @@ loading
 
 
 
+
 </form>
 
 );
-
 
 }
